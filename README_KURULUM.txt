@@ -10,12 +10,12 @@ Bu paket, mevcut statik PWA'yı Cloudflare Worker + D1 + Web Push ile çalışac
 - İlk kurulumda Cloudflare Worker ve D1 yapılandırması gerekir. ZIP'i sadece mevcut statik dosyaların yanına koymak tek başına yetmez.
 
 ## 1. Dosyaları GitHub'a ekle
-Bu paketin içindeki `public/` klasöründeki dosyaları deponun köküne koy (index.html, sw.js, manifest.webmanifest, icon.svg). `worker.js`, `wrangler.toml`, `package.json`, `schema.sql` dosyalarını da depo köküne koy.
+Bu paketin içindeki `public/` klasörünü olduğu gibi GitHub deposunun köküne yükle. `public` klasörünün içinde index.html, sw.js, manifest.webmanifest ve icon.svg bulunmalı. `worker.js`, `wrangler.toml`, `package.json` ve `schema.sql` dosyaları ise depo kökünde kalmalı. `wrangler.toml` zaten `./public` klasörünü kullanacak şekilde ayarlanmıştır.
 
 ## 2. D1 veritabanı oluştur
 Cloudflare Dashboard → Storage & databases → D1 SQL Database → Create database.
 Adı: `damla-ilac-db`.
-D1 veritabanının UUID'sini kopyala ve `wrangler.toml` içindeki `BURAYA_D1_DATABASE_ID` yerine yaz.
+Bu pakette Database ID, oluşturduğun `damla-ilac-db` veritabanına göre doldurulmuştur. Başka bir veritabanı oluşturursan ID'yi `wrangler.toml` içinden güncelle.
 D1 Console'da `schema.sql` içeriğini çalıştır.
 
 ## 3. VAPID anahtarlarını oluştur
